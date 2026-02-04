@@ -1,0 +1,13 @@
+body { font-family: Arial; margin: 40px; }
+
+table { border-collapse: collapse; width: 100%; }
+td, th { border: 1px solid #ccc; padding: 6px; }
+
+.card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 8px 
+.highlight {
+  background: gold;
+  font-weight: bold;
+}

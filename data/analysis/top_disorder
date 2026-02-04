@@ -1,0 +1,8 @@
+import pandas as pd
+
+# Load the protein disorder summary you created earlier
+df = pd.read_csv("protein_disorder_summary.csv")
+
+# Now you can sort and see top disordered proteins
+top_disordered = df.sort_values("percent_disorder", ascending=False).head(10)
+print(top_disordered[["accession", "gene_name", "length", "percent_disorder"]])

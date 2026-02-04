@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IDR Atlas</title>
+<style>
+body{font-family:Arial;margin:40px}
+.card{border:1px solid #ccc;padding:10px;margin:8px;border-radius:8px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #aaa;padding:6px}
+button{margin:5px}
+</style>
+</head>
+
+<body>
+
+<h1>IDR Atlas</h1>
+
+<form method="get">
+<input name="q" value="{{ q }}" placeholder="Search gene / accession / IDR">
+<input type="hidden" name="view" value="{{ view }}">
+<button>Search</button>
+</form>
+
+<a href="/?q={{ q }}&view=card">Card view</a> |
+<a href="/?q={{ q }}&view=table">Table view</a>
+
+<h3>Dataset overview</h3>
+<img src="/plots/length_histogram">
+<img src="/plots/length_categories">
+
+<hr>
+
+{% if view=="card" %}
+  {% for r in results %}
+    <div class="card">
+      <b>{{ r.gene_name }}</b><br>
+      IDR: {{ r.idr_id }}<br>
+      Accession: {{ r.accession }}<br>
+      Length: {{ r.length }}<br>
+      FCR: {{ r.FCR }} | NCPR: {{ r.NCPR }}<br>
+      <a href="/sequence/{{ r.idr_id }}">View sequence</a>
+    </div>
+  {% endfor %}
+{% else %}
+<table>
+<tr>
+<th>idr_id</th><th>gene</th><th>accession</th>
+<th>start</th><th>end</th><th>length</th>
+<th>FCR</th><th>NCPR</th><th>sequence</th>
+</tr>
+{% for r in results %}
+<tr>
+<td>{{ r.idr_id }}</td>
+<td>{{ r.gene_name }}</td>
+<td>{{ r.accession }}</td>
+<td>{{ r.start }}</td>
+<td>{{ r.end }}</td>
+<td>{{ r.length }}</td>
+<td>{{ r.FCR }}</td>
+<td>{{ r.NCPR }}</td>
+<td><a href="/sequence/{{ r.idr_id }}">View</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+</body>
+</html>
+

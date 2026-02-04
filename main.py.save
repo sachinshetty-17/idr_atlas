@@ -1,0 +1,29 @@
+import requests
+import pandas as pd
+import os
+import time
+from io import StringIO
+
+BASE_URL = "https://rest.uniprot.org/uniprotkb/search"
+QUERY = "organism_id:9606 AND reviewed:true"
+FIELDS = "accession,protein_name,gene_names,organism_name,length,sequence"
+FORMAT = "tsv"
+SIZE = 100
+
+OUTPUT_FILE = "data/uniprot_humanreviewed_data.csv"
+CURSOR_FILE = "data/uniprot_cursor.txt"
+
+def load_cursor():
+    if os.path.exists(CURSOR_FILE):
+        with open(CURSOR_FILE, "r") as f:
+            return f.read().strip()
+    return None
+
+
+def save_cursor(cursor):
+    with open(CURSOR_FILE, "w") as f:
+        f.write(cursor)
+
+
+def fetch_all_uniprot():
+    cursor 

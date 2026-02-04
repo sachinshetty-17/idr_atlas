@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>IDR Atlas</h2>
+
+<form action="/search" method="get">
+  <input name="q" placeholder="Gene name, UniProt accession, or IDR ID" required>
+  <button type="submit">Search</button>
+</form>
+
+{% endblock %}
+

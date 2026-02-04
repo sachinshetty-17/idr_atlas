@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ idr.idr_id }}</title>
+<style>
+.sequence{font-family:monospace;white-space:pre-wrap}
+.idr{background:#ffeb3b;font-weight:bold}
+</style>
+</head>
+
+<body>
+
+<h2>{{ idr.idr_id }}</h2>
+
+<p>
+Gene:
+<a target="_blank" href="https://www.genecards.org/cgi-bin/carddisp.pl?gene={{ idr.gene_name }}">
+{{ idr.gene_name }}
+</a>
+|
+Accession:
+<a target="_blank" href="https://www.uniprot.org/uniprot/{{ idr.accession }}">
+{{ idr.accession }}
+</a>
+|
+Region {{ idr.start }}–{{ idr.end }}
+</p>
+
+<div class="sequence">
+{{ sequence|safe }}
+</div>
+
+<br>
+<a href="/">← Back</a>
+
+</body>
+</html>

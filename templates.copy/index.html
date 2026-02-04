@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IDR Atlas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by Gene / Accession">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <h3>Filter IDRs</h3>
+
+            <label>Length (residues)</label>
+            <input type="number" id="minLength" placeholder="Min">
+            <input type="number" id="maxLength" placeholder="Max">
+
+            <label>FCR</label>
+            <input type="number" id="minFCR" step="0.01" placeholder="Min">
+            <input type="number" id="maxFCR" step="0.01" placeholder="Max">
+
+            <label>NCPR</label>
+            <select id="ncprFilter">
+                <option value="">Any</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
+                <option value="neutral">Neutral</option>
+            </select>
+
+            <button id="applyFilters">Apply Filters</button>
+        </div>
+
+        <!-- IDR List -->
+        <div id="idrList">
+            <!-- Results from backend will appear here -->
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+</body>
+</html>

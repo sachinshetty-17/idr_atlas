@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Results for "{{ q }}"</h3>
+<a href="/search?q={{q}}&view=cards">Card view</a>
+
+<table>
+<tr>
+  <th>IDR ID</th>
+  <th>Gene</th>
+  <th>Accession</th>
+  <th>Organism</th>
+  <th>Start</th>
+  <th>End</th>
+  <th>Length</th>
+
+  <th>f+</th>
+  <th>f−</th>
+  <th>FCR</th>
+  <th>NCPR</th>
+  <th>κ</th>
+  <th>Hydropathy</th>
+  <th>Aromatic</th>
+  <th>Proline</th>
+  <th>Glycine</th>
+
+  <th>Sequence</th>
+</tr>
+
+{% for _, r in results.iterrows() %}
+<tr>
+<td>{{ r.idr_id }}</td>
+
+<td>
+<a target="_blank"
+href="https://www.genecards.org/cgi-bin/carddisp.pl?gene={{ r.gene_name }}">
+{{ r.gene_name }}
+</a>
+</td>
+
+<td>
+<a target="_blank"
+href="https://www.uniprot.org/uniprot/{{ r.accession }}">
+{{ r.accession }}
+</a>
+</td>
+
+<td>{{ r.organism }}</td>
+<td>{{ r.start }}</td>
+<td>{{ r.end }}</td>
+<td>{{ r.length }}</td>
+
+<td>{{ r.f_plus }}</td>
+<td>{{ r.f_minus }}</td>
+<td>{{ r.FCR }}</td>
+<td>{{ r.NCPR }}</td>
+<td>{{ r.kappa }}</td>
+<td>{{ r.hydropathy }}</td>
+<td>{{ r.aromatic_density }}</td>
+<td>{{ r.pro_fraction }}</td>
+<td>{{ r.gly_fraction }}</td>
+
+<td><a href="/sequence/{{ r.idr_id }}">View</a></td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

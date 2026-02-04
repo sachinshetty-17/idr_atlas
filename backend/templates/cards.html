@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Results for "{{ q }}"</h3>
+<a href="/search?q={{q}}">Table view</a>
+
+{% for _, r in results.iterrows() %}
+<div class="card">
+
+<b>{{ r.gene_name }}</b> ({{ r.accession }})<br>
+Organism: {{ r.organism }}<br>
+IDR {{ r.start }}–{{ r.end }} | Length {{ r.length }}<br>
+
+f+ {{ r.f_plus }} | f− {{ r.f_minus }} | FCR {{ r.FCR }}<br>
+NCPR {{ r.NCPR }} | κ {{ r.kappa }}<br>
+Hydropathy {{ r.hydropathy }}<br>
+Aromatic {{ r.aromatic_density }} | Pro {{ r.pro_fraction }} | Gly {{ r.gly_fraction }}<br>
+
+<a href="/sequence/{{ r.idr_id }}">View sequence</a>
+
+</div>
+{% endfor %}
+
+{% endblock %}
