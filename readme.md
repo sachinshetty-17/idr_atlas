@@ -18,10 +18,10 @@ This project aims to build an interactive atlas of IDRs with:
 - Built a fastapi backend
 - Created a basic frontend to search IDRs
 
-### what is planned next
+## what is planned next
 - Better UI and validation using known software
 
-# Per-IDR visualizations
+### Per-IDR visualizations
 - IDR length context (histogram + violin + boxplot)
 - Hydropathy profile (Kyte–Doolittle sliding window)
 - Mean hydropathy vs mean net charge
@@ -31,12 +31,13 @@ This project aims to build an interactive atlas of IDRs with:
 - Proline vs glycine composition
 - Correlation heatmap of IDR parameters
 
-# Dataset-level visualizations
+### Dataset-level visualizations
 - Global IDR length distribution
 - IDR chemical space mapping (PCA/UMAP, planned)
 
-## Interactive Sequence Analysis (Planned / Prototype)
-# Sequence Mutation Explorer
+## Interactive Sequence Analysis (Planned)
+
+### Sequence Mutation Explorer
 Allows users to introduce point mutations or small edits into existing IDR sequences and observe changes in parameters.
 
 Parameters compared:
@@ -47,7 +48,7 @@ Parameters compared:
 - Proline and glycine fractions
 - Aromatic residue density
 
-# Amino Acid Builder (Sequence Growth Simulator)
+### Amino Acid Builder (Sequence Growth Simulator)
 An interactive tool to construct IDR sequences residue-by-residue and observe the evolution of parameters as the sequence grows.
 
 Tracked outputs:
@@ -55,9 +56,4 @@ Tracked outputs:
 - Emergence of disorder-related features
 - Comparison with natural idr
 - experimental validation 
-
-## Tech stack
-- Backend: FastAPI (Python)
-- Frontend: HTML, CSS, JavaScript
-- Data source: UniProt reviewed human proteome
 
