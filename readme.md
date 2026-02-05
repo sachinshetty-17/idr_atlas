@@ -3,13 +3,6 @@
 IDR Atlas is a web-based project to explore intrinsically disordered regions (IDRs)
 in reviewed human proteins using sequence-derived biophysical parameters.
 
-## Why this project?
-This project aims to build an interactive atlas of IDRs with:
-- Searchable metadata
-- Biophysical parameters
-- Visual plots for each IDR
-- Global plots for some parameters
-
 ## What is done so far
 - Extracted IDRs from reviewed human proteins from uniprot 
 - Computed basic parameters (start,end,sequence,length,f +/-,FCR,NCPR,kappa,hydropathy,aromatic density,pro fraction,gly fraction, full sequence)
